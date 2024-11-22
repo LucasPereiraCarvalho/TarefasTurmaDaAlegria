@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Alert, FlatList, SafeAreaView } from "react-native";
 
 import { TaskProps } from "@/src/interfaces/task.interface";
-import { FormInput } from "../textInput/textInput";
+import { TaskCard } from "../card/card";
+import { FormInput } from "../input/textInput";
 import { styles } from "./styles";
 
 export function Body() {
@@ -13,7 +14,7 @@ export function Body() {
     }
 
     // Alteração do State de uma Tarefa
-    function handleToggleTask(id: string) {
+    function changeStatusTask(id: number) {
         const updatedTask = tasks.map((task) =>
             task.id === id
                 ? {
@@ -27,7 +28,7 @@ export function Body() {
     }
 
     // Removendo uma Tarefa
-    function removeTask(id: string) {
+    function removeTask(id: number) {
         const tasksFiltered = tasks.filter((task) => task.id !== id);
 
         Alert.alert("Remover tarefa", "Deseja remover essa tarefa?", [
@@ -52,22 +53,15 @@ export function Body() {
     return (
         <SafeAreaView style={styles.container}>
             <FormInput onAddNewTask={addNewTask} tasks={tasks} />
-            TaskCounter
-            {/* <TaskCounter
-        tasksCreatedCounter={tasksCreatedCounter}
-        completedTasks={completedTasks}
-      /> */}
             <FlatList
                 data={tasks}
-                keyExtractor={(item) => item.id}
+                keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => {
                     return (
-                        <>TaskCard</>
-                        // <TaskCard
-                        //   task={item}
-                        //   onToggleCheckedTask={handleToggleTask}
-                        //   onRemoveTask={removeTask}
-                        // />
+                        <TaskCard
+                            task={item}
+                            doneTask={changeStatusTask}
+                        />
                     );
                 }}
                 showsVerticalScrollIndicator={false}
