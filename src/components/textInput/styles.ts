@@ -18,7 +18,7 @@ const baseStylesTextInput = StyleSheet.create({
 export const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
-        marginTop: 12,
+        marginTop: -26,
     },
     textInput: {
         ...baseStylesTextInput.input,

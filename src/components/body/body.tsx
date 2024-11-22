@@ -5,14 +5,10 @@ import { TaskProps } from "@/src/interfaces/task.interface";
 import { FormInput } from "../textInput/textInput";
 import { styles } from "./styles";
 
-
-
 export function Body() {
     const [tasks, setTasks] = useState<TaskProps[]>([]);
-
-    // Criação de nova Tarefa
-    function handleAddNewTask(task: TaskProps) {
-        console.log('task ',task)
+    function addNewTask(task: TaskProps) {
+        console.log("task ", task);
         setTasks((prevState) => [...prevState, task]);
     }
 
@@ -55,7 +51,7 @@ export function Body() {
 
     return (
         <SafeAreaView style={styles.container}>
-            <FormInput onAddNewTask={handleAddNewTask} />
+            <FormInput onAddNewTask={addNewTask} tasks={tasks} />
             TaskCounter
             {/* <TaskCounter
         tasksCreatedCounter={tasksCreatedCounter}
