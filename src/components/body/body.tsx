@@ -3,6 +3,7 @@ import { Alert, FlatList, SafeAreaView } from "react-native";
 
 import { TaskProps } from "@/src/interfaces/task.interface";
 import { TaskCard } from "../card/card";
+import { TaskCardEmpty } from "../cardEmpty/cardEmpty";
 import { FormInput } from "../input/textInput";
 import { styles } from "./styles";
 
@@ -65,8 +66,7 @@ export function Body() {
                 }}
                 showsVerticalScrollIndicator={false}
                 ListEmptyComponent={() => {
-                    return <></>;
-                    //   <TaskCardEmpty />
+                    return <TaskCardEmpty />;
                 }}
             />
         </SafeAreaView>
