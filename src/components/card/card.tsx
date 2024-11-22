@@ -8,21 +8,14 @@ import { styles } from "./styles";
 interface CardProps {
     task: TaskProps;
     doneTask: (id: number) => void;
-    //   onRemoveTask: (id: number) => void
+    onRemoveTask: (id: number) => void;
 }
 
-export function TaskCard({
-    task,
-    doneTask,
-}: // onRemoveTask,
-CardProps) {
-    // Toggle do Checkbox
+export function TaskCard({ task, doneTask, onRemoveTask }: CardProps) {
     const [isChecked, setChecked] = useState(false);
-
-    // Mudança de cor ao clicar no botão da lixeira
     const [buttonPressed, setButtonPressed] = useState(false);
 
-    function handleToggleTask(task: TaskProps) {
+    function changeStatusTask(task: TaskProps) {
         setChecked(!isChecked);
         doneTask(task.id);
     }
@@ -35,7 +28,7 @@ CardProps) {
                         isChecked ? styles.checkbox : styles.checkboxUnchecked
                     }
                     value={isChecked}
-                    onValueChange={() => handleToggleTask(task)}
+                    onValueChange={() => changeStatusTask(task)}
                     color={isChecked ? "#5E60CE" : "#4EA8DE"}
                 />
             </TouchableHighlight>
@@ -43,15 +36,6 @@ CardProps) {
             <Text style={task.done ? styles.completedText : styles.text}>
                 {task.task}
             </Text>
-
-            {/* <TouchableHighlight
-                underlayColor="#333333"
-                onShowUnderlay={() => setButtonPressed(true)}
-                onHideUnderlay={() => setButtonPressed(false)}
-                onPress={() => onRemoveTask(task.id)}
-            >
-                <Trash size={21} color={buttonPressed ? '#E25858' : '#808080'} />
-            </TouchableHighlight> */}
         </View>
     );
 }

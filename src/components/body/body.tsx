@@ -13,7 +13,6 @@ export function Body() {
         setTasks((prevState) => [...prevState, task]);
     }
 
-    // Alteração do State de uma Tarefa
     function changeStatusTask(id: number) {
         const updatedTask = tasks.map((task) =>
             task.id === id
@@ -27,7 +26,6 @@ export function Body() {
         setTasks(updatedTask);
     }
 
-    // Removendo uma Tarefa
     function removeTask(id: number) {
         const tasksFiltered = tasks.filter((task) => task.id !== id);
 
@@ -61,12 +59,13 @@ export function Body() {
                         <TaskCard
                             task={item}
                             doneTask={changeStatusTask}
+                            onRemoveTask={removeTask}
                         />
                     );
                 }}
                 showsVerticalScrollIndicator={false}
                 ListEmptyComponent={() => {
-                    return <>TaskCardEmpty</>;
+                    return <></>;
                     //   <TaskCardEmpty />
                 }}
             />

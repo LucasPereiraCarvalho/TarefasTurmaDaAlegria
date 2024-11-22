@@ -6,7 +6,7 @@ export function Header() {
     return (
         <View style={styles.header}>
             <Image source={icon_logo} style={styles.logo} />
-            <Text style={styles.text}>To-Do List</Text>
+            <Text style={styles.text}>TAREFAS</Text>
         </View>
     );
 }
