@@ -29,7 +29,8 @@ export function Body() {
 
     function removeTask(id: number) {
         const tasksFiltered = tasks.filter((task) => task.id !== id);
-
+        console.log('id ',id);
+        
         Alert.alert("Remover tarefa", "Deseja remover essa tarefa?", [
             {
                 text: "Sim",

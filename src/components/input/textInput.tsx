@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Image, TextInput, TouchableOpacity, View } from "react-native";
+import { Alert, Image, TextInput, TouchableOpacity, View } from "react-native";
 import plus from "../../../assets/images/plus.png";
 
 import { TaskProps } from "@/src/interfaces/task.interface";
@@ -17,20 +17,24 @@ export function FormInput({ onAddNewTask, tasks }: FormInputProps) {
     const [newTask, setNewTask] = useState("");
 
     function handleCreateNewTask() {
-        const task: TaskProps = {
-            id: tasks.length + 1,
-            task: newTask,
-            done: false,
-        };
-        onAddNewTask(task);
-        setNewTask("");
+        if (!newTask.trim()) {
+            Alert.alert("Nome inválido", "Por favor, informe um nome válido!");
+        } else {
+            const task: TaskProps = {
+                id: tasks.length + 1,
+                task: newTask,
+                done: false,
+            };
+            onAddNewTask(task);
+            setNewTask("");
+        }
     }
 
     return (
         <View style={styles.container}>
             <TextInput
                 style={customStyleInput}
-                placeholder="Task"
+                placeholder="Nova Tarefa"
                 placeholderTextColor="#808080"
                 onFocus={() => setFocus(true)}
                 onChangeText={setNewTask}

@@ -1,8 +1,9 @@
-import { Text, TouchableHighlight, View } from "react-native";
+import { Image, Text, TouchableHighlight, View } from "react-native";
 
 import { TaskProps } from "@/src/interfaces/task.interface";
 import Checkbox from "expo-checkbox";
 import { useState } from "react";
+import recycling from "../../../assets/images/recycling.png";
 import { styles } from "./styles";
 
 interface CardProps {
@@ -36,6 +37,15 @@ export function TaskCard({ task, doneTask, onRemoveTask }: CardProps) {
             <Text style={task.done ? styles.completedText : styles.text}>
                 {task.task}
             </Text>
+
+            <TouchableHighlight
+                underlayColor="#333333"
+                onShowUnderlay={() => setButtonPressed(true)}
+                onHideUnderlay={() => setButtonPressed(false)}
+                onPress={() => onRemoveTask(task.id)}
+            >
+                <Image source={recycling} style={styles.remove} />
+            </TouchableHighlight>
         </View>
     );
 }
