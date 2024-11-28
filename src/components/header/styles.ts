@@ -12,10 +12,12 @@ export const styles = StyleSheet.create({
     logo: {
         width: 48,
         height: 48,
+        marginBottom: 36,
     },
     text: {
         fontSize: 24,
         fontWeight: "bold",
         color: "#F2F2F2",
+        marginBottom: 36,
     },
 });

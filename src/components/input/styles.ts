@@ -17,9 +17,9 @@ const baseStylesTextInput = StyleSheet.create({
 
 export const styles = StyleSheet.create({
     container: {
-        flexDirection: "row",
-        marginTop: -26,        
-        paddingBottom: 26
+        // flexDirection: "row",
+        marginTop: -64,
+        paddingBottom: 26,
     },
     textInput: {
         ...baseStylesTextInput.input,
@@ -30,7 +30,11 @@ export const styles = StyleSheet.create({
         borderColor: "#5E60CE",
     },
     button: {
-        width: 52,
+        // width: 52,
+        padding: 16,
+        marginRight: 12,
+        marginTop: 14,
+
         height: 52,
         borderRadius: 6,
         backgroundColor: "#1E6F9F",
@@ -40,5 +44,12 @@ export const styles = StyleSheet.create({
     plus: {
         width: 32,
         height: 32,
+    },
+    label: {
+        fontSize: 16,
+        fontWeight: "bold",
+        marginBottom: 5,
+        color: "#F2F2F2",
+        marginTop: 10
     },
 });
