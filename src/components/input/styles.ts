@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const baseStylesTextInput = StyleSheet.create({
+const baseStyles = StyleSheet.create({
     input: {
         flex: 1,
         height: 52,
@@ -13,43 +13,53 @@ const baseStylesTextInput = StyleSheet.create({
         fontSize: 16,
         marginRight: 12,
     },
-});
-
-export const styles = StyleSheet.create({
-    container: {
-        // flexDirection: "row",
-        marginTop: -64,
-        paddingBottom: 26,
-    },
-    textInput: {
-        ...baseStylesTextInput.input,
-        borderColor: "#0D0D0D",
-    },
-    textInputFocus: {
-        ...baseStylesTextInput.input,
-        borderColor: "#5E60CE",
-    },
     button: {
-        // width: 52,
         padding: 16,
         marginRight: 12,
         marginTop: 14,
-
         height: 52,
         borderRadius: 6,
-        backgroundColor: "#1E6F9F",
         alignItems: "center",
         justifyContent: "center",
-    },
-    plus: {
-        width: 32,
-        height: 32,
+        flexDirection: "row",
+        gap: 4,
     },
     label: {
         fontSize: 16,
         fontWeight: "bold",
         marginBottom: 5,
+        marginTop: 10,
+    },
+});
+
+export const styles = StyleSheet.create({
+    container: {
+        marginTop: -64,
+        paddingBottom: 26,
+    },
+    textInput: {
+        ...baseStyles.input,
+        borderColor: "#0D0D0D",
+    },
+    textInputFocus: {
+        ...baseStyles.input,
+        borderColor: "#5E60CE",
+    },
+    button: {
+        ...baseStyles.button,
+        backgroundColor: "#1E6F9F",
+    },
+    buttonError: {
+        ...baseStyles.button,
+        backgroundColor: "#992020",
+    },
+    plus: {
+        width: 32,
+        height: 32,
+        marginTop: 4,
+    },
+    label: {
+        ...baseStyles.label,
         color: "#F2F2F2",
-        marginTop: 10
     },
 });

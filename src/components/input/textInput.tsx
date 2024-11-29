@@ -19,11 +19,13 @@ interface FormInputProps {
 
 export function FormInput({ onAddNewTask, tasks }: FormInputProps) {
     const [focus, setFocus] = useState(false);
-    const customStyleInput = focus ? styles.textInputFocus : styles.textInput;
+    const [error, setError] = useState(false);
 
-    const [task, setNewTask] = useState("");
-    const [location, setLocation] = useState("");
-    const [date, setDate] = useState("");
+    const [task, setNewTask] = useState("Jantar teste");
+    const [location, setLocation] = useState("Sede teste");
+    const [date, setDate] = useState("20/01/2023");
+
+    const customStyleInput = focus ? styles.textInputFocus : styles.textInput;
 
     function handleCreateNewTask() {
         if (!task || !location || !date) {
@@ -31,6 +33,7 @@ export function FormInput({ onAddNewTask, tasks }: FormInputProps) {
                 "Error",
                 "Por favor, preencha todos os campos da tarefa"
             );
+            setError(true);
             return;
         }
 
@@ -42,13 +45,14 @@ export function FormInput({ onAddNewTask, tasks }: FormInputProps) {
             done: false,
         };
         onAddNewTask(newTask);
-        clearNewTask();
+        inittialState();
     }
 
-    function clearNewTask() {
+    function inittialState() {
         setNewTask("");
         setLocation("");
         setDate("");
+        setError(false);
     }
 
     return (
@@ -70,6 +74,7 @@ export function FormInput({ onAddNewTask, tasks }: FormInputProps) {
                 placeholderTextColor="#808080"
                 onChangeText={setLocation}
                 value={location}
+                onFocus={() => setFocus(true)}
             />
 
             <Text style={styles.label}>Data:</Text>
@@ -79,13 +84,16 @@ export function FormInput({ onAddNewTask, tasks }: FormInputProps) {
                 placeholderTextColor="#808080"
                 onChangeText={setDate}
                 value={date}
+                onFocus={() => setFocus(true)}
             />
 
             <TouchableOpacity
-                style={styles.button}
+                style={!error ? styles.button : styles.buttonError}
                 onPress={handleCreateNewTask}
+                onFocus={() => setFocus(false)}
             >
                 <Image source={plus} style={styles.plus} />
+                <Text style={styles.label}>Adicionar</Text>
             </TouchableOpacity>
         </View>
     );

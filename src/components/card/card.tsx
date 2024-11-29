@@ -34,9 +34,21 @@ export function TaskCard({ task, doneTask, onRemoveTask }: CardProps) {
                 />
             </TouchableHighlight>
 
-            <Text style={task.done ? styles.completedText : styles.text}>
-                {task.task}
-            </Text>
+            <View style={styles.textContainer}>
+                <Text style={task.done ? styles.completedText : styles.text}>
+                    <Text style={styles.boldText}>Tarefa: </Text>
+                    {task.task}
+                </Text>
+                <Text style={task.done ? styles.completedText : styles.text}>
+                    <Text style={styles.boldText}>Local: </Text>
+
+                    {task.location}
+                </Text>
+                <Text style={task.done ? styles.completedText : styles.text}>
+                    <Text style={styles.boldText}>Data: </Text>
+                    {task.date}
+                </Text>
+            </View>
 
             <TouchableHighlight
                 underlayColor="#333333"

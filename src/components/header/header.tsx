@@ -6,7 +6,7 @@ export function Header() {
     return (
         <View style={styles.header}>
             <Image source={icon_logo} style={styles.logo} />
-            <Text style={styles.text}>TAREFAS</Text>
+            <Text style={styles.text}>Turma Da Alegria</Text>
         </View>
     );
 }

@@ -1,5 +1,12 @@
 import { StyleSheet } from "react-native";
 
+const baseStyles = StyleSheet.create({
+    text: {
+        flex: 1,
+        color: "#F2F2F2",
+    },
+});
+
 export const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
@@ -30,16 +37,22 @@ export const styles = StyleSheet.create({
         marginRight: 5,
     },
     text: {
-        flex: 1,
-        color: "#F2F2F2",
+        ...baseStyles.text,
     },
     completedText: {
-        flex: 1,
+        ...baseStyles.text,
         textDecorationLine: "line-through",
-        color: "#808080",
+    },
+    boldText: {
+        fontWeight: "bold",
+        fontSize: 15,
     },
     remove: {
         width: 32,
         height: 32,
+    },
+    textContainer: {
+        flex: 1,
+        gap:6,
     },
 });
