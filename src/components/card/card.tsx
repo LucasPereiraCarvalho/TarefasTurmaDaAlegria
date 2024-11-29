@@ -29,7 +29,7 @@ export function TaskCard({ task, doneTask, onRemoveTask }: CardProps) {
                     }
                     value={isChecked}
                     onValueChange={() => changeStatusTask(task)}
-                    color={isChecked ? "#5E60CE" : "#4EA8DE"}
+                    color={isChecked ? "#3498db" : "#4EA8DE"}
                 />
             </TouchableHighlight>
 

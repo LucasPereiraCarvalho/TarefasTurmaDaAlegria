@@ -10,7 +10,6 @@ import { styles } from "./styles";
 export function Body() {
     const [tasks, setTasks] = useState<TaskProps[]>([]);
     function addNewTask(task: TaskProps) {
-        console.log("task ", task);
         setTasks((prevState) => [...prevState, task]);
     }
 
@@ -33,7 +32,6 @@ export function Body() {
 
     function removeTask(id: number) {
         const tasksFiltered = tasks.filter((task) => task.id !== id);
-        console.log("id ", id);
 
         Alert.alert("Remover tarefa", "Deseja remover essa tarefa?", [
             {
