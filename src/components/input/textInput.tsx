@@ -66,7 +66,7 @@ export function FormInput({ onAddNewTask, tasks }: FormInputProps) {
             <TextInput
                 style={customStyleInput}
                 placeholder="Digite a tarefa"
-                placeholderTextColor="#808080"
+                placeholderTextColor="#888"
                 onFocus={() => setFocus(true)}
                 onChangeText={setNewTask}
                 value={task}
@@ -77,7 +77,7 @@ export function FormInput({ onAddNewTask, tasks }: FormInputProps) {
             <TextInput
                 style={customStyleInput}
                 placeholder="Digite o local"
-                placeholderTextColor="#808080"
+                placeholderTextColor="#888"
                 onChangeText={setLocation}
                 value={location}
                 onFocus={() => setFocus(true)}
@@ -88,7 +88,7 @@ export function FormInput({ onAddNewTask, tasks }: FormInputProps) {
             <TextInput
                 style={customStyleInput}
                 placeholder="Digite a data (ex: 30/11/2024)"
-                placeholderTextColor="#808080"
+                placeholderTextColor="#888"
                 onChangeText={setDate}
                 value={date}
                 onFocus={() => setFocus(true)}

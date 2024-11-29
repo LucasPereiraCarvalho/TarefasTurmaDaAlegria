@@ -2,18 +2,25 @@ import { StyleSheet } from "react-native";
 
 const baseStyles = StyleSheet.create({
     input: {
-        flex: 1,
-        height: 52,
-        backgroundColor: "#262626",
+        // flex: 1,
+        // height: 52,
+        // backgroundColor: "#262626",
+        // borderWidth: 1,
+        // borderColor: "#0D0D0D",
+        // borderRadius: 6,
+        // color: "#F2F2F2",
+        // padding: 16,
+        // fontSize: 16,
+
+        height: 40,
+        borderColor: "#ccc",
         borderWidth: 1,
-        borderColor: "#0D0D0D",
-        borderRadius: 6,
+        borderRadius: 5,
+        paddingHorizontal: 10,
         color: "#F2F2F2",
-        padding: 16,
-        fontSize: 16,
     },
     button: {
-        padding: 16,
+        // padding: 16,
         marginTop: 14,
         height: 52,
         borderRadius: 6,
@@ -32,7 +39,7 @@ const baseStyles = StyleSheet.create({
 
 export const styles = StyleSheet.create({
     container: {
-        marginTop: -64,
+        marginTop: -30,
         paddingBottom: 26,
     },
     textInput: {
@@ -41,7 +48,7 @@ export const styles = StyleSheet.create({
     },
     textInputFocus: {
         ...baseStyles.input,
-        borderColor: "#5E60CE",
+        borderColor: "#3498db",
     },
     button: {
         ...baseStyles.button,
