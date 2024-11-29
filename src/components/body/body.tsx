@@ -14,6 +14,10 @@ export function Body() {
         setTasks((prevState) => [...prevState, task]);
     }
 
+    function orderTasks() {
+        return tasks.sort((a, b) => (a.done as any) - (b.done as any));
+    }
+
     function changeStatusTask(id: number) {
         const updatedTask = tasks.map((task) =>
             task.id === id
@@ -29,8 +33,8 @@ export function Body() {
 
     function removeTask(id: number) {
         const tasksFiltered = tasks.filter((task) => task.id !== id);
-        console.log('id ',id);
-        
+        console.log("id ", id);
+
         Alert.alert("Remover tarefa", "Deseja remover essa tarefa?", [
             {
                 text: "Sim",
@@ -43,18 +47,11 @@ export function Body() {
         ]);
     }
 
-    // Contagem de Tarefas e de Tarefas Completadas
-    const tasksCreatedCounter = tasks.length;
-
-    const completedTasks = tasks.reduce((acc, task) => {
-        return task.done ? acc + 1 : acc;
-    }, 0);
-
     return (
         <SafeAreaView style={styles.container}>
             <FormInput onAddNewTask={addNewTask} tasks={tasks} />
             <FlatList
-                data={tasks}
+                data={orderTasks()}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => {
                     return (

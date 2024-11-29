@@ -11,11 +11,9 @@ const baseStyles = StyleSheet.create({
         color: "#F2F2F2",
         padding: 16,
         fontSize: 16,
-        marginRight: 12,
     },
     button: {
         padding: 16,
-        marginRight: 12,
         marginTop: 14,
         height: 52,
         borderRadius: 6,

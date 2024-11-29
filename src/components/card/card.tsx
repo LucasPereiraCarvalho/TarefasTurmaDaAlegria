@@ -14,7 +14,6 @@ interface CardProps {
 
 export function TaskCard({ task, doneTask, onRemoveTask }: CardProps) {
     const [isChecked, setChecked] = useState(false);
-    const [buttonPressed, setButtonPressed] = useState(false);
 
     function changeStatusTask(task: TaskProps) {
         setChecked(!isChecked);
@@ -52,8 +51,6 @@ export function TaskCard({ task, doneTask, onRemoveTask }: CardProps) {
 
             <TouchableHighlight
                 underlayColor="#333333"
-                onShowUnderlay={() => setButtonPressed(true)}
-                onHideUnderlay={() => setButtonPressed(false)}
                 onPress={() => onRemoveTask(task.id)}
             >
                 <Image source={recycling} style={styles.remove} />

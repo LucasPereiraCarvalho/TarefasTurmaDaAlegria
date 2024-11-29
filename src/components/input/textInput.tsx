@@ -21,9 +21,9 @@ export function FormInput({ onAddNewTask, tasks }: FormInputProps) {
     const [focus, setFocus] = useState(false);
     const [error, setError] = useState(false);
 
-    const [task, setNewTask] = useState("Jantar teste");
-    const [location, setLocation] = useState("Sede teste");
-    const [date, setDate] = useState("20/01/2023");
+    const [task, setNewTask] = useState("");
+    const [location, setLocation] = useState("");
+    const [date, setDate] = useState("");
 
     const customStyleInput = focus ? styles.textInputFocus : styles.textInput;
 
@@ -55,6 +55,11 @@ export function FormInput({ onAddNewTask, tasks }: FormInputProps) {
         setError(false);
     }
 
+    function showNotShowError() {
+        if (!task || !location || !date) return;
+        setError(false);
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.label}>Tarefa:</Text>
@@ -65,6 +70,7 @@ export function FormInput({ onAddNewTask, tasks }: FormInputProps) {
                 onFocus={() => setFocus(true)}
                 onChangeText={setNewTask}
                 value={task}
+                onChange={() => showNotShowError()}
             />
 
             <Text style={styles.label}>Local:</Text>
@@ -75,6 +81,7 @@ export function FormInput({ onAddNewTask, tasks }: FormInputProps) {
                 onChangeText={setLocation}
                 value={location}
                 onFocus={() => setFocus(true)}
+                onChange={() => showNotShowError()}
             />
 
             <Text style={styles.label}>Data:</Text>
@@ -85,6 +92,7 @@ export function FormInput({ onAddNewTask, tasks }: FormInputProps) {
                 onChangeText={setDate}
                 value={date}
                 onFocus={() => setFocus(true)}
+                onChange={() => showNotShowError()}
             />
 
             <TouchableOpacity

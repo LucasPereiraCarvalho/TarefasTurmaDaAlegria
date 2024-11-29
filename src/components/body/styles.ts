@@ -7,5 +7,6 @@ export const styles = StyleSheet.create({
         marginHorizontal: 20,
         flex: 1,
         paddingBottom: 20,
+        paddingTop: 20,
     },
 });
